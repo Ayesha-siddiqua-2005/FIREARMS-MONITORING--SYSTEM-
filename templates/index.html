@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SENTINEL AI — Smart City Firearm Detection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body data-page="home">
+
+  <!-- ═══ TOP NAVIGATION ═══ -->
+  <nav class="topnav" id="topnav">
+    <div class="nav-brand">
+      <span class="brand-icon">⬡</span>
+      <a href="{{ url_for('index') }}" class="brand-text">SENTINEL<span class="accent">AI</span></a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="{{ url_for('index') }}" class="nav-link" data-page="home">Home</a>
+      <a href="{{ url_for('detection_page') }}" class="nav-link" data-page="detection">Detection</a>
+      <a href="{{ url_for('monitoring_page') }}" class="nav-link" data-page="monitoring">Monitoring</a>
+      <a href="{{ url_for('crime_map_page') }}" class="nav-link" data-page="crimemap">Crime Map</a>
+      <a href="{{ url_for('alerts_page') }}" class="nav-link" data-page="alerts">Alerts</a>
+      <a href="{{ url_for('analytics_page') }}" class="nav-link" data-page="analytics">Analytics</a>
+      <a href="{{ url_for('guide_page') }}" class="nav-link" data-page="guide">Guide</a>
+      <a href="{{ url_for('about_page') }}" class="nav-link" data-page="about">About</a>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" id="voiceToggle" title="Toggle Voice Alerts">
+        <span id="voiceIcon">🔊</span>
+      </button>
+      <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ MAIN CONTENT — HOME PAGE ═══ -->
+  <main class="main-content" id="page-home">
+    <section class="home-hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="hero-badge">NEXT-GEN URBAN SECURITY PLATFORM</div>
+          <h1 class="hero-title">
+            AI-Powered <span class="accent">Firearm Detection</span><br />
+            for Smart Cities
+          </h1>
+          <p class="hero-desc">
+            Real-time threat identification powered by Faster R-CNN, EfficientDet-B0, and
+            Weighted Box Fusion (WBF) ensemble techniques. Integrated with smart city
+            infrastructure for instant alerts, crime mapping, and predictive analytics.
+          </p>
+          <div class="hero-actions">
+            <a href="{{ url_for('detection_page') }}" class="btn btn-primary">START DETECTION</a>
+            <a href="{{ url_for('guide_page') }}" class="btn btn-secondary">VIEW GUIDE</a>
+          </div>
+        </div>
+        <div class="hero-right cctv-monitor">
+          <!-- Digital screen grid pattern -->
+          <div class="cctv-screen-grid"></div>
+
+          <!-- Surveillance Feed Image — Local Dataset -->
+          <img
+            class="cctv-feed-img"
+            src="{{ url_for('static', filename='images/hero-target.jpg') }}"
+            alt="Active Inference Feed"
+            loading="eager"
+          />
+
+          <!-- Tactical Scan Line -->
+          <div class="cctv-scan-line"></div>
+
+          <!-- HUD Overlay Layer -->
+          <div class="cctv-hud-overlay">
+            <!-- Top Left: REC indicator -->
+            <div class="hud-tl">
+              <span class="hud-rec-dot"></span>
+              <span class="hud-rec-text">REC</span>
+              <span class="hud-rec-track">032.7 GB</span>
+            </div>
+
+            <!-- Top Right: Live Timestamp -->
+            <div class="hud-tr">
+              <span class="hud-timestamp" id="cctvTimestamp">00:00:00:00</span>
+            </div>
+
+            <!-- Bottom Left: System Status -->
+            <div class="hud-bl">
+              <span class="hud-sys-status">SYSTEM: ACTIVE</span>
+              <span class="hud-sys-divider">|</span>
+              <span class="hud-sys-model">Faster R-CNN + EfficientDet (WBF)</span>
+            </div>
+
+            <!-- Bottom Right: Camera ID -->
+            <div class="hud-br">
+              <span class="hud-cam-id">CAM-017</span>
+              <span class="hud-cam-divider">|</span>
+              <span class="hud-cam-zone">ZONE: MAIN_ENTRANCE</span>
+            </div>
+
+            <!-- Corner Brackets -->
+            <div class="hud-corner tl"></div>
+            <div class="hud-corner tr"></div>
+            <div class="hud-corner bl"></div>
+            <div class="hud-corner br"></div>
+
+            <!-- Crosshair Lines -->
+            <div class="hud-crosshair-v"></div>
+            <div class="hud-crosshair-h"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="section-label section-label-lg">⚡ TECHNOLOGY STACK</div>
+      <div class="tech-grid tech-grid-center">
+        <div class="tech-chip"><span class="tech-icon">🧠</span> Faster R-CNN / EfficientDet</div>
+        <div class="tech-chip"><span class="tech-icon">📷</span> OpenCV Real-time</div>
+        <div class="tech-chip"><span class="tech-icon">🐍</span> Python / TensorFlow</div>
+        <div class="tech-chip"><span class="tech-icon">🌐</span> Computer Vision Pipeline</div>
+        <div class="tech-chip"><span class="tech-icon">🗺️</span> Leaflet Crime Maps</div>
+        <div class="tech-chip"><span class="tech-icon">📊</span> Chart.js Analytics</div>
+        <div class="tech-chip"><span class="tech-icon">🔔</span> Voice Alerts</div>
+        <div class="tech-chip"><span class="tech-icon">🌙</span> Dark/Light Themes</div>
+      </div>
+
+      <!-- Stats -->
+      <div class="section-label section-label-lg">📈 PLATFORM STATISTICS</div>
+      <div class="stats-row">
+        <div class="stat-card glass">
+          <span class="stat-num" id="statAccuracy">97.3%</span>
+          <span class="stat-label">DETECTION ACCURACY</span>
+        </div>
+        <div class="stat-card glass">
+          <span class="stat-num" id="statLatency">&lt;50ms</span>
+          <span class="stat-label">AVG. LATENCY</span>
+        </div>
+        <div class="stat-card glass">
+          <span class="stat-num" id="statCameras">1,200+</span>
+          <span class="stat-label">CAMERAS INTEGRATED</span>
+        </div>
+        <div class="stat-card glass">
+          <span class="stat-num" id="statAlerts">24/7</span>
+          <span class="stat-label">REAL-TIME MONITORING</span>
+        </div>
+      </div>
+
+      <!-- AI Model Cards -->
+      <div class="section-label section-label-lg">🤖 AI MODELS</div>
+      <div class="model-cards">
+        <div class="glass model-card highlight">
+          <div class="model-icon">🎯</div>
+          <h3>Faster R-CNN</h3>
+          <p>High-accuracy two-stage detector for precision-critical surveillance zones.</p>
+          <div class="model-metric"><b>mAP 96.5%</b> · 41.1M params</div>
+        </div>
+        <div class="glass model-card">
+          <div class="model-icon">🔬</div>
+          <h3>EfficientDet-D2</h3>
+          <p>Balanced accuracy and efficiency. Ideal for standard security deployments.</p>
+          <div class="model-metric"><b>mAP 95.8%</b> · 8.1M params</div>
+        </div>
+        <div class="glass model-card">
+          <div class="model-icon">🏆</div>
+          <h3>Ensemble (WBF)</h3>
+          <p>Weighted Box Fusion of all models for maximum accuracy in critical zones.</p>
+          <div class="model-metric"><b>mAP 98.1%</b> · Multi-model</div>
+        </div>
+      </div>
+
+      <!-- How It Works -->
+      <div class="how-section">
+        <div class="section-label section-label-lg">🔄 HOW IT WORKS</div>
+        <div class="how-grid">
+          <div class="glass how-card">
+            <div class="how-num">1</div>
+            <h4>CAPTURE</h4>
+            <p>Live video feeds from CCTV cameras are ingested in real-time via RTSP streams.</p>
+          </div>
+          <div class="glass how-card">
+            <div class="how-num">2</div>
+            <h4>ANALYZE</h4>
+            <p>Faster R-CNN and EfficientDet ensemble processes each frame, detecting firearms with bounding boxes and confidence scores via Weighted Box Fusion.</p>
+          </div>
+          <div class="glass how-card">
+            <div class="how-num">3</div>
+            <h4>CLASSIFY</h4>
+            <p>Detected objects are classified (handgun, rifle) and threat level is assessed.</p>
+          </div>
+          <div class="glass how-card">
+            <div class="how-num">4</div>
+            <h4>ALERT</h4>
+            <p>Instant notifications sent to law enforcement. Crime mapped and logged for analytics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
