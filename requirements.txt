@@ -1,0 +1,13 @@
+flask
+opencv-python
+numpy
+pandas
+# PyTorch (The core DL framework)
+torch
+torchvision
+# EfficientDet implementation for PyTorch
+effdet
+# The specific library for Weighted Box Fusion (The paper's novelty)
+ensemble-boxes
+# Image handling
+Pillow
